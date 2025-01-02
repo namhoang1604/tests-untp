@@ -60,7 +60,7 @@ jobs:
           git commit --allow-empty -m "chore: release ${{ steps.retrieve_version.outputs.new_version }}" -m "Release-As: ${{ steps.retrieve_version.outputs.new_version }}"
           git push
 
-      # Create release changelog
+      # Create release changelog test
       - name: Create release changelog
         id: release
         uses: googleapis/release-please-action@v4
