@@ -60,12 +60,12 @@ jobs:
           git commit --allow-empty -m "chore: release ${{ steps.retrieve_version.outputs.new_version }}" -m "Release-As: ${{ steps.retrieve_version.outputs.new_version }}"
           git push
 
-      # Create release changelog test
+      # Create release changelog
       - name: Create release changelog
         id: release
         uses: googleapis/release-please-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           target-branch: ${{ github.ref_name }}
           config-file: .github/workflows/release-please-config.json
           manifest-file: .github/workflows/.release-please-manifest-rc.json
